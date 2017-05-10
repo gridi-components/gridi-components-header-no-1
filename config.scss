@@ -19,7 +19,7 @@ $component-header-no-1-title-image-max-height: ($component-header-no-1-height - 
 
 //Nav
 $component-header-no-1-nav-selector: '.hn-nav' !default;
-$component-header-no-1-subnav-selector: '.hn-subnav' !default;
+$component-header-no-1-sub-nav-selector: '.hn-subnav' !default;
 $component-header-no-1-nav-element-selector: '.hn-nav-item' !default;
 
 //Elements
@@ -37,22 +37,22 @@ $component-header-no-1-nav-element-font-size-for-screens: (
     ...
 ) !default;
 */
-$component-header-no-1-nav-element-open-supmenu-class: 'open' !default;
-$component-header-no-1-nav-element-focus-class: 'focus' !default;
+$component-header-no-1-nav-element-open-sub-nav-class: 'open-sub-nav' !default;
+$component-header-no-1-nav-element-focus-class: 'link-focus' !default;
 
-//Subnav
-$component-header-no-1-subnav-background: $primary-color !default;
-$component-header-no-1-subnav-open-transition-duration: 0.3s !default;
+//Sub nav
+$component-header-no-1-sub-nav-background: $primary-color !default;
+$component-header-no-1-sub-nav-open-transition-duration: 0.3s !default;
 
-//Subnav Elements
-$component-header-no-1-subnav-element-padding: 20px !default;
-$component-header-no-1-subnav-element-font-size: 1em !default;
-$component-header-no-1-subnav-element-color: $primary-color-background-inner-color !default;
+//Sub nav Elements
+$component-header-no-1-sub-nav-element-padding: 20px !default;
+$component-header-no-1-sub-nav-element-font-size: 1em !default;
+$component-header-no-1-sub-nav-element-color: $primary-color-background-inner-color !default;
 
-$component-header-no-1-subnav-element-hover-background: $hover-primary-color !default;
-$component-header-no-1-subnav-element-hover-color: $hover-primary-color-background-inner-color !default;
+$component-header-no-1-sub-nav-element-hover-background: $hover-primary-color !default;
+$component-header-no-1-sub-nav-element-hover-color: $hover-primary-color-background-inner-color !default;
 /*
-$component-header-no-1-subnav-element-font-size-for-screens: (
+$component-header-no-1-sub-nav-element-font-size-for-screens: (
     s1: 1.2em,
     ...
 ) !default;

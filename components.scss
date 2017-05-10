@@ -251,8 +251,8 @@
             }
         }
 
-        //Subnav
-        #{$component-header-no-1-subnav-selector} {
+        //Sub nav
+        #{$component-header-no-1-sub-nav-selector} {
             display: block;
             @include display-flex();
             @include flex-flow(row, nowrap);
@@ -265,7 +265,7 @@
             width: 100%;
             height: auto;
             margin: 0;
-            background: $component-header-no-1-subnav-background;
+            background: $component-header-no-1-sub-nav-background;
             padding: 0;
             text-align: center;
             list-style: none;
@@ -292,14 +292,14 @@
                     @include flex-flow(row, nowrap);
                     @include align-items(center);
                     height: 100%;
-                    padding: $component-header-no-1-subnav-element-padding;
-                    font-size: $component-header-no-1-subnav-element-font-size;
-                    color: $component-header-no-1-subnav-element-color;
+                    padding: $component-header-no-1-sub-nav-element-padding;
+                    font-size: $component-header-no-1-sub-nav-element-font-size;
+                    color: $component-header-no-1-sub-nav-element-color;
                     @if variable-exists(component-header-no-1-submenu-element-font-size-for-screens) {
                         @each $screen-prefix, $sizes in get-screens-map() {
-                            @if map-has-key($component-header-no-1-subnav-element-font-size-for-screens, $screen-prefix) {
+                            @if map-has-key($component-header-no-1-sub-nav-element-font-size-for-screens, $screen-prefix) {
                                 @media(min-width: get-screen-size($screen-prefix, min)) {
-                                    font-size: map-get($component-header-no-1-subnav-element-font-size-for-screens, $screen-prefix);
+                                    font-size: map-get($component-header-no-1-sub-nav-element-font-size-for-screens, $screen-prefix);
                                 }
                             }
                         }
@@ -307,8 +307,8 @@
 
                     @media(min-width: get-screen-size($component-header-no-1-mobile-screen-size-prefix, min)) {
                         &:hover, &:focus {
-                            background: $component-header-no-1-subnav-element-hover-background;
-                            color: $component-header-no-1-subnav-element-hover-color;
+                            background: $component-header-no-1-sub-nav-element-hover-background;
+                            color: $component-header-no-1-sub-nav-element-hover-color;
                         }
                     }
 
@@ -321,25 +321,25 @@
             }
 
             //force no display more than 1 submenu
-            #{$component-header-no-1-subnav-selector} {
+            #{$component-header-no-1-sub-nav-selector} {
                 display: none;
             }
         }
 
-        //Subnav open
+        //Sub nav open
         #{$component-header-no-1-nav-selector} > #{$component-header-no-1-nav-element-selector} {
             @media( min-width: get-screen-size($component-header-no-1-mobile-screen-size-prefix, min)) {
                 > a:after {
                     @include transition('height #{$component-header-no-1-nav-element-bootom-line-transition-duration} linear');
                 }
 
-                #{$component-header-no-1-subnav-selector} {
+                #{$component-header-no-1-sub-nav-selector} {
                     visibility: hidden;
                     @include opacity(0);
-                    @include transition('opacity #{$component-header-no-1-subnav-open-transition-duration} linear, visibility #{$component-header-no-1-subnav-open-transition-duration} linear');
+                    @include transition('opacity #{$component-header-no-1-sub-nav-open-transition-duration} linear, visibility #{$component-header-no-1-sub-nav-open-transition-duration} linear');
                 }
 
-                &:hover, &.#{$component-header-no-1-nav-element-open-supmenu-class}, &.#{$component-header-no-1-nav-element-focus-class} {
+                &:hover, &.#{$component-header-no-1-nav-element-open-sub-nav-class}, &.#{$component-header-no-1-nav-element-focus-class} {
                     > a {
                         color: $component-header-no-1-nav-element-hover-color;
 
@@ -348,7 +348,7 @@
                         }
                     }
 
-                    #{$component-header-no-1-subnav-selector} {
+                    #{$component-header-no-1-sub-nav-selector} {
                         visibility: visible;
                         @include opacity(1);
                     }
@@ -356,8 +356,8 @@
             }
 
             @media(max-width: get-screen-size($component-header-no-1-mobile-screen-size-prefix, max)) {
-                &.#{$component-header-no-1-nav-element-open-supmenu-class}, &.#{$component-header-no-1-nav-element-focus-class} {
-                    #{$component-header-no-1-subnav-selector} {
+                &.#{$component-header-no-1-nav-element-open-sub-nav-class}, &.#{$component-header-no-1-nav-element-focus-class} {
+                    #{$component-header-no-1-sub-nav-selector} {
                         height: auto;
                     }
                 }
