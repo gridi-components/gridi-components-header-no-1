@@ -1,0 +1,83 @@
+$component-header-no-1-height: 95px !default;
+$component-header-no-1-background: $document-background-color !default;
+
+//Fixed header
+$component-header-no-1-fixed-z-index: 50 !default;
+$component-header-no-1-fixed-class: 'fixed-header' !default;
+$component-header-no-1-fixed-hide-class: 'hide-header' !default;
+
+//Title
+$component-header-no-1-title-font-size: 2.5em !default;
+/*
+$component-header-no-1-title-font-size-for-screens: (
+    s1: 1.2em,
+    ...
+) !default;
+*/
+$component-header-no-1-title-color: $primary-color !default;
+$component-header-no-1-title-image-max-height: ($component-header-no-1-height - 30px) !default;
+
+//Nav
+$component-header-no-1-nav-selector: '.hn-nav' !default;
+$component-header-no-1-subnav-selector: '.hn-subnav' !default;
+$component-header-no-1-nav-element-selector: '.hn-nav-item' !default;
+
+//Elements
+$component-header-no-1-nav-element-space: 40px !default;
+$component-header-no-1-nav-element-font-size: 1em !default;
+$component-header-no-1-nav-element-color: $document-color !default;
+$component-header-no-1-nav-element-hover-color: $hover-primary-color !default;
+
+$component-header-no-1-nav-element-bootom-line-height: 5px !default;
+$component-header-no-1-nav-element-bootom-line-color: $primary-color !default;
+$component-header-no-1-nav-element-bootom-line-transition-duration: 0.15s !default;
+/*
+$component-header-no-1-nav-element-font-size-for-screens: (
+    s1: 1.2em,
+    ...
+) !default;
+*/
+$component-header-no-1-nav-element-open-supmenu-class: 'open' !default;
+$component-header-no-1-nav-element-focus-class: 'focus' !default;
+
+//Subnav
+$component-header-no-1-subnav-background: $primary-color !default;
+$component-header-no-1-subnav-open-transition-duration: 0.3s !default;
+
+//Subnav Elements
+$component-header-no-1-subnav-element-padding: 20px !default;
+$component-header-no-1-subnav-element-font-size: 1em !default;
+$component-header-no-1-subnav-element-color: $primary-color-background-inner-color !default;
+
+$component-header-no-1-subnav-element-hover-background: $hover-primary-color !default;
+$component-header-no-1-subnav-element-hover-color: $hover-primary-color-background-inner-color !default;
+/*
+$component-header-no-1-subnav-element-font-size-for-screens: (
+    s1: 1.2em,
+    ...
+) !default;
+*/
+
+//Mobile
+$component-header-no-1-mobile-screen-size-prefix: s5 !default;
+$component-header-no-1-mobile-height: 60px !default;
+$component-header-no-1-mobile-nav-open-class: 'open-nav' !default;
+$component-header-no-1-mobile-nav-open-overlay-opacity: 0.7;
+
+//Title
+$component-header-no-1-mobile-title-image-max-height: ($component-header-no-1-mobile-height - 20px) !default;
+
+//Nav Switcher
+$component-header-no-1-mobile-nav-switcher-width: 28px !default;
+$component-header-no-1-mobile-nav-switcher-height: 40px !default;
+$component-header-no-1-mobile-nav-switcher-padding-vertical: 10px !default;
+$component-header-no-1-mobile-nav-switcher-bar-height: 1px !default;
+$component-header-no-1-mobile-nav-switcher-bar-color: $component-header-no-1-nav-element-color !default;
+
+//Nav
+$component-header-no-1-mobile-nav-width: 350px !default;
+$component-header-no-1-mobile-nav-open-transition-duration: 0.4s !default;
+$component-header-no-1-mobile-nav-full-width-screen-size-prefix: s2 !default;
+
+//Elements
+$component-header-no-1-mobile-nav-element-padding: 15px 20px !default;

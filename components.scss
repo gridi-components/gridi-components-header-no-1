@@ -1,0 +1,397 @@
+.header, .header .header-nav-container {
+    height: $component-header-no-1-height;
+
+    @media(max-width: get-screen-size($component-header-no-1-mobile-screen-size-prefix, max)) {
+        height: $component-header-no-1-mobile-height;
+    }
+}
+
+.header {
+    position: relative;
+    width: 100%;
+    background: $component-header-no-1-background;
+
+    &.#{$component-header-no-1-fixed-class} {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: $component-header-no-1-fixed-z-index;
+        @include transition('transform 0.5s cubic-bezier(0.3, 0.03, 0.515, 0.955) 0ms');
+
+        &.#{$component-header-no-1-fixed-hide-class} {
+            @include transform(translateY(-100%));
+        }
+
+        @media(min-width: get-screen-size($component-header-no-1-mobile-screen-size-prefix, min)) {
+            &:hover.#{$component-header-no-1-fixed-hide-class} {
+                @include transform(none);
+            }
+        }
+
+        @media(max-width: get-screen-size($component-header-no-1-mobile-screen-size-prefix, max)) {
+            @include transition-duration(0.4s);
+        }
+    }
+
+    @media(max-width: get-screen-size($component-header-no-1-mobile-screen-size-prefix, max)) {
+        &:before {
+            content: ' ';
+            display: block;
+            visibility: hidden;
+            position: fixed;
+            left: 0;
+            top: $component-header-no-1-mobile-height;
+            z-index: 1;
+            width: 100%;
+            height: 0;
+            background: $component-header-no-1-background;
+            @include opacity(0);
+            @include transition('opacity #{$component-header-no-1-mobile-nav-open-transition-duration} ease');
+        }
+    }
+
+    > * {
+        height: 100%;
+    }
+
+    .header-wrapper {
+        display: table;
+        @include display-flex();
+        @include flex-flow(row, nowrap);
+        @include align-items(stretch);
+        @include justify-content(space-between);
+        width: 100%;
+        table-layout: auto;
+    }
+
+    .header-title,
+    .header-nav-container {
+        display: table-cell;
+        vertical-align: middle;
+        @include display-flex();
+        @include flex-flow(row, nowrap);
+        @include align-items(center);
+    }
+
+    //Title
+    .header-title {
+        @include align-self(center);
+        font-size: $component-header-no-1-title-font-size;
+        color: $component-header-no-1-title-color;
+        @if variable-exists(component-header-no-1-title-font-size-for-screen) {
+            @each $screen-prefix, $sizes in get-screens-map() {
+                @if map-has-key($component-header-no-1-title-font-size-for-screen, $screen-prefix) {
+                    @media(min-width: get-screen-size($screen-prefix, min)) {
+                        font-size: map-get($component-header-no-1-title-font-size-for-screen, $screen-prefix);
+                    }
+                }
+            }
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            display: inline-block;
+            width: auto;
+            height: auto;
+            max-height: $component-header-no-1-title-image-max-height;
+            margin: 0;
+
+            @media(max-width: get-screen-size($component-header-no-1-mobile-screen-size-prefix, max)) {
+                max-height: $component-header-no-1-mobile-title-image-max-height;
+            }
+        }
+    }
+
+    //Nav switcher
+    .header-nav-switcher {
+        display: none;
+
+        @media(max-width: get-screen-size($component-header-no-1-mobile-screen-size-prefix, max)) {
+            display: block;
+            float: right;
+            border: 0;
+            margin: 0;
+            background: transparent;
+            padding: 0;
+
+            .hns-icon {
+                display: block;
+                position: relative;
+                width: $component-header-no-1-mobile-nav-switcher-width;
+                height: $component-header-no-1-mobile-nav-switcher-height;
+
+                span {
+                    display: block;
+                    position: absolute;
+                    left: 0;
+                    width: 100%;
+                    height: $component-header-no-1-mobile-nav-switcher-bar-height;
+                    background: $component-header-no-1-mobile-nav-switcher-bar-color;
+                    @include transform(rotate(0deg));
+                    @include transition(all .25s ease-in-out);
+
+                    &:nth-child(1) {
+                        top: $component-header-no-1-mobile-nav-switcher-padding-vertical;
+                    }
+
+                    &:nth-child(2), &:nth-child(3) {
+                        top: 50%;
+                        margin-top: -($component-header-no-1-mobile-nav-switcher-bar-height);
+                    }
+
+                    &:nth-child(4) {
+                        bottom: $component-header-no-1-mobile-nav-switcher-padding-vertical;
+                    }
+                }
+            }
+        }
+    }
+
+    //Nav
+    .header-nav {
+        @media(max-width: get-screen-size($component-header-no-1-mobile-screen-size-prefix, max)) {
+            display: block;
+            position: fixed;
+            top: $component-header-no-1-mobile-height;
+            right: -($component-header-no-1-mobile-nav-width);
+            z-index: 2;
+            width: $component-header-no-1-mobile-nav-width;
+            background: $component-header-no-1-background;
+            height: 100%;
+            padding-bottom: $component-header-no-1-mobile-height;
+            @include transition('right #{$component-header-no-1-mobile-nav-open-transition-duration} ease');
+        }
+
+        @media(max-width: get-screen-size($component-header-no-1-mobile-nav-full-width-screen-size-prefix, max)) {
+            right: -100%;
+            width: 100%;
+        }
+
+
+
+        #{$component-header-no-1-nav-selector} {
+            float: right;
+            width: auto;
+            height: $component-header-no-1-height;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+            @media(max-width: get-screen-size($component-header-no-1-mobile-screen-size-prefix, max)) {
+                float: none;
+                height: auto;
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            > #{$component-header-no-1-nav-element-selector} {
+                display: table;
+                @include display-flex();
+                @include flex-flow(row, nowrap);
+                float: left;
+                height: 100%;
+                margin: 0;
+                margin-right: $component-header-no-1-nav-element-space;
+                table-layout: auto;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                @media(max-width: get-screen-size($component-header-no-1-mobile-screen-size-prefix, max)) {
+                    display: block;
+                    float: none;
+                    margin: 0;
+                }
+
+                > a {
+                    display: table-cell;
+                    @include display-flex();
+                    @include flex-flow(row, nowrap);
+                    @include align-items(center);
+                    position: relative;
+                    font-size: $component-header-no-1-nav-element-font-size;
+                    vertical-align: middle;
+                    color: $component-header-no-1-nav-element-color;
+                    @if variable-exists(component-header-no-1-menu-element-font-size-for-screens) {
+                        @each $screen-prefix, $sizes in get-screens-map() {
+                            @if map-has-key($component-header-no-1-nav-element-font-size-for-screens, $screen-prefix) {
+                                @media(min-width: get-screen-size($screen-prefix, min)) {
+                                    font-size: map-get($component-header-no-1-nav-element-font-size-for-screens, $screen-prefix);
+                                }
+                            }
+                        }
+                    }
+
+                    @media(min-width: get-screen-size($component-header-no-1-mobile-screen-size-prefix, min)) {
+                        &:after {
+                            content: ' ';
+                            display: block;
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 0;
+                            background: $component-header-no-1-nav-element-bootom-line-color;
+                        }
+                    }
+
+                    @media(max-width: get-screen-size($component-header-no-1-mobile-screen-size-prefix, max)) {
+                        display: block;
+                        padding: $component-header-no-1-mobile-nav-element-padding;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+
+        //Subnav
+        #{$component-header-no-1-subnav-selector} {
+            display: block;
+            @include display-flex();
+            @include flex-flow(row, nowrap);
+            @include align-items(stretch);
+            @include justify-content(center);
+            list-style: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: auto;
+            margin: 0;
+            background: $component-header-no-1-subnav-background;
+            padding: 0;
+            text-align: center;
+            list-style: none;
+
+            @media(max-width: get-screen-size($component-header-no-1-mobile-screen-size-prefix, max)) {
+                display: block;
+                position: relative;
+                top: auto;
+                height: 0;
+            }
+
+            #{$component-header-no-1-nav-element-selector} {
+                display: inline-block;
+                margin: 0;
+                vertical-align: middle;
+
+                @media(max-width: get-screen-size($component-header-no-1-mobile-screen-size-prefix, max)) {
+                    display: block;
+                }
+
+                a {
+                    display: block;
+                    @include display-flex();
+                    @include flex-flow(row, nowrap);
+                    @include align-items(center);
+                    height: 100%;
+                    padding: $component-header-no-1-subnav-element-padding;
+                    font-size: $component-header-no-1-subnav-element-font-size;
+                    color: $component-header-no-1-subnav-element-color;
+                    @if variable-exists(component-header-no-1-submenu-element-font-size-for-screens) {
+                        @each $screen-prefix, $sizes in get-screens-map() {
+                            @if map-has-key($component-header-no-1-subnav-element-font-size-for-screens, $screen-prefix) {
+                                @media(min-width: get-screen-size($screen-prefix, min)) {
+                                    font-size: map-get($component-header-no-1-subnav-element-font-size-for-screens, $screen-prefix);
+                                }
+                            }
+                        }
+                    }
+
+                    @media(min-width: get-screen-size($component-header-no-1-mobile-screen-size-prefix, min)) {
+                        &:hover, &:focus {
+                            background: $component-header-no-1-subnav-element-hover-background;
+                            color: $component-header-no-1-subnav-element-hover-color;
+                        }
+                    }
+
+                    @media(max-width: get-screen-size($component-header-no-1-mobile-screen-size-prefix, max)) {
+                        display: block;
+                        padding: $component-header-no-1-mobile-nav-element-padding;
+                        text-align: center;
+                    }
+                }
+            }
+
+            //force no display more than 1 submenu
+            #{$component-header-no-1-subnav-selector} {
+                display: none;
+            }
+        }
+
+        //Subnav open
+        #{$component-header-no-1-nav-selector} > #{$component-header-no-1-nav-element-selector} {
+            @media( min-width: get-screen-size($component-header-no-1-mobile-screen-size-prefix, min)) {
+                > a:after {
+                    @include transition('height #{$component-header-no-1-nav-element-bootom-line-transition-duration} linear');
+                }
+
+                #{$component-header-no-1-subnav-selector} {
+                    visibility: hidden;
+                    @include opacity(0);
+                    @include transition('opacity #{$component-header-no-1-subnav-open-transition-duration} linear, visibility #{$component-header-no-1-subnav-open-transition-duration} linear');
+                }
+
+                &:hover, &.#{$component-header-no-1-nav-element-open-supmenu-class}, &.#{$component-header-no-1-nav-element-focus-class} {
+                    > a {
+                        color: $component-header-no-1-nav-element-hover-color;
+
+                        &:after {
+                            height: $component-header-no-1-nav-element-bootom-line-height;
+                        }
+                    }
+
+                    #{$component-header-no-1-subnav-selector} {
+                        visibility: visible;
+                        @include opacity(1);
+                    }
+                }
+            }
+
+            @media(max-width: get-screen-size($component-header-no-1-mobile-screen-size-prefix, max)) {
+                &.#{$component-header-no-1-nav-element-open-supmenu-class}, &.#{$component-header-no-1-nav-element-focus-class} {
+                    #{$component-header-no-1-subnav-selector} {
+                        height: auto;
+                    }
+                }
+            }
+        }
+    }
+
+    //Mobile open nav
+    @media(max-width: get-screen-size($component-header-no-1-mobile-screen-size-prefix, max)) {
+        &.#{$component-header-no-1-mobile-nav-open-class} {
+            &:before {
+                visibility: visible;
+                height: 100%;
+                @include opacity($component-header-no-1-mobile-nav-open-overlay-opacity);
+            }
+
+            .header-nav {
+                right: 0;
+            }
+
+            .header-nav-switcher .hns-icon span {
+                &:nth-child(1), &:nth-child(4) {
+                    top: 50%;
+                    width: 0%;
+                    left: 50%;
+                }
+
+                &:nth-child(2) {
+                    @include transform(rotate(45deg));
+                }
+
+                &:nth-child(3) {
+                    @include transform(rotate(-45deg));
+                }
+            }
+        }
+    }
+}
