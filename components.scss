@@ -154,6 +154,7 @@
     .header-nav {
         @media(max-width: get-screen-size($component-header-no-1-mobile-screen-size-prefix, max)) {
             display: block;
+            overflow: auto;
             position: fixed;
             top: $component-header-no-1-mobile-height;
             right: -($component-header-no-1-mobile-nav-width);
