@@ -374,6 +374,10 @@
                 @include opacity($component-header-no-1-mobile-nav-open-overlay-opacity);
             }
 
+            &.#{$component-header-no-1-fixed-hide-class} {
+                @include transform(none);
+            }
+
             .header-nav {
                 right: 0;
             }
