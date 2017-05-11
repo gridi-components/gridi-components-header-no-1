@@ -257,7 +257,7 @@
         #{$component-header-no-1-nav-selector} > #{$component-header-no-1-nav-element-selector} #{$component-header-no-1-sub-nav-selector} {
             display: block;
             @include display-flex();
-            @include flex-flow(row, nowrap);
+            @include flex-flow(row, wrap);
             @include align-items(stretch);
             @include justify-content(center);
             list-style: none;
