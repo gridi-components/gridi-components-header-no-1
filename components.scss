@@ -252,7 +252,7 @@
         }
 
         //Sub nav
-        #{$component-header-no-1-sub-nav-selector} {
+        #{$component-header-no-1-nav-selector} > #{$component-header-no-1-nav-element-selector} #{$component-header-no-1-sub-nav-selector} {
             display: block;
             @include display-flex();
             @include flex-flow(row, nowrap);
