@@ -1,4 +1,4 @@
-.header, .header .header-nav-container {
+.header, .header .header-wrapper, .header .header-nav-container {
     height: $component-header-no-1-height;
 
     @media(max-width: get-screen-size($component-header-no-1-mobile-screen-size-prefix, max)) {
