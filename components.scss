@@ -160,7 +160,7 @@
             right: -($component-header-no-1-mobile-nav-width);
             z-index: 2;
             width: $component-header-no-1-mobile-nav-width;
-            background: $component-header-no-1-background;
+            background: $component-header-no-1-mobile-nav-background;
             height: 100%;
             padding-bottom: $component-header-no-1-mobile-height;
             @include transition('right #{$component-header-no-1-mobile-nav-open-transition-duration} ease');
@@ -246,6 +246,7 @@
                         display: block;
                         padding: $component-header-no-1-mobile-nav-element-padding;
                         text-align: center;
+                        color: $component-header-no-1-mobile-nav-element-color;
                     }
                 }
             }
@@ -275,6 +276,7 @@
                 position: relative;
                 top: auto;
                 height: 0;
+                background: $component-header-no-1-mobile-sub-nav-background;
             }
 
             #{$component-header-no-1-nav-element-selector} {
@@ -316,6 +318,7 @@
                         display: block;
                         padding: $component-header-no-1-mobile-nav-element-padding;
                         text-align: center;
+                        color: $component-header-no-1-mobile-sub-nav-element-color;
                     }
                 }
             }

@@ -79,5 +79,14 @@ $component-header-no-1-mobile-nav-width: 350px !default;
 $component-header-no-1-mobile-nav-open-transition-duration: 0.4s !default;
 $component-header-no-1-mobile-nav-full-width-screen-size-prefix: s2 !default;
 
+$component-header-no-1-mobile-nav-background: $document-background-color !default;
+
 //Elements
 $component-header-no-1-mobile-nav-element-padding: 15px 20px !default;
+$component-header-no-1-mobile-nav-element-color: $component-header-no-1-nav-element-color;
+
+//Sub nav
+$component-header-no-1-mobile-sub-nav-background: $primary-color !default;
+
+//Sub nav Elements
+$component-header-no-1-mobile-sub-nav-element-color: $primary-color-background-inner-color !default;
